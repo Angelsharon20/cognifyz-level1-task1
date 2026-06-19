@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%- page === 'home'    ? 'Cognifyz – Home'
+      : page === 'contact' ? 'Cognifyz – Contact Us'
+      : page === 'about'   ? 'Cognifyz – About'
+      : 'Cognifyz – Page Not Found' %>
+  </title>
+
+  <!-- Google Fonts: Space Grotesk (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body data-page="<%= page %>">
+
+  <!-- ═══════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+        <span class="brand-icon"><i class="bi bi-cpu-fill"></i></span>
+        <span class="brand-text">Cognifyz<span class="brand-dot">.</span></span>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link <%= page === 'home'    ? 'active' : '' %>" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <%= page === 'about'   ? 'active' : '' %>" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-cta <%= page === 'contact' ? 'active' : '' %>" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAGE CONTENT (switched by `page` variable)
+  ════════════════════════════════════════════════════ -->
+
+  <% if (page === 'home') { %>
+  <!-- ─── HOME ──────────────────────────────────────── -->
+  <section class="hero-section">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="container hero-container">
+      <div class="row align-items-center min-vh-80 py-5">
+        <div class="col-lg-6 hero-copy">
+          <span class="eyebrow-tag">Cognifyz Technologies</span>
+          <h1 class="hero-headline">
+            Where Data<br/>
+            <span class="headline-accent">Thinks</span> For You.
+          </h1>
+          <p class="hero-sub">
+            We build AI-powered solutions that turn raw information into clear decisions.
+            Intelligent. Fast. Built for scale.
+          </p>
+          <div class="hero-actions">
+            <a href="/contact" class="btn btn-primary-custom">
+              Get in touch <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+            <a href="/about" class="btn btn-ghost-custom ms-3">
+              Our story
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex justify-content-center mt-5 mt-lg-0">
+          <div class="hero-visual" aria-hidden="true">
+            <div class="orbit-ring ring-1"></div>
+            <div class="orbit-ring ring-2"></div>
+            <div class="orbit-ring ring-3"></div>
+            <div class="core-node">
+              <i class="bi bi-cpu-fill"></i>
+            </div>
+            <div class="orbit-dot dot-a"><i class="bi bi-graph-up-arrow"></i></div>
+            <div class="orbit-dot dot-b"><i class="bi bi-database-fill"></i></div>
+            <div class="orbit-dot dot-c"><i class="bi bi-lightning-fill"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats strip -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="row g-4 py-5 justify-content-center">
+        <div class="col-6 col-md-3 text-center">
+          <div class="stat-num" data-target="240">0</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <div class="stat-num" data-target="98">0</div>
+          <div class="stat-label">Client Satisfaction %</div>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <div class="stat-num" data-target="12">0</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <div class="stat-num" data-target="50">0</div>
+          <div class="stat-label">AI Engineers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services-section py-6">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="eyebrow-tag">What We Do</span>
+        <h2 class="section-title">Capabilities that <span class="headline-accent">scale</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-robot"></i></div>
+            <h3 class="service-title">Machine Learning</h3>
+            <p class="service-desc">Custom ML models trained on your data, deployed at production speed.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card service-card--accent">
+            <div class="service-icon"><i class="bi bi-bar-chart-steps"></i></div>
+            <h3 class="service-title">Data Analytics</h3>
+            <p class="service-desc">Turn messy datasets into dashboards that actually drive decisions.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+            <h3 class="service-title">Cloud & MLOps</h3>
+            <p class="service-desc">CI/CD pipelines for models — from notebook to production in hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <% } else if (page === 'about') { %>
+  <!-- ─── ABOUT ─────────────────────────────────────── -->
+  <section class="inner-hero py-6">
+    <div class="container">
+      <span class="eyebrow-tag">About Us</span>
+      <h1 class="section-title mt-2">Built by engineers.<br/><span class="headline-accent">Driven by data.</span></h1>
+    </div>
+  </section>
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <p class="body-lg">
+            Cognifyz Technologies was founded on a single belief: every organisation, regardless of size,
+            deserves access to intelligent tools that make better decisions possible.
+          </p>
+          <p class="body-lg mt-3">
+            Our team of AI researchers, full-stack engineers, and data scientists work at the intersection
+            of cutting-edge research and practical software delivery. We ship things that work.
+          </p>
+          <a href="/contact" class="btn btn-primary-custom mt-4">Work with us</a>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-card-grid">
+            <div class="about-pill"><i class="bi bi-check2-circle"></i> Internship programmes</div>
+            <div class="about-pill"><i class="bi bi-check2-circle"></i> Open-source contributions</div>
+            <div class="about-pill"><i class="bi bi-check2-circle"></i> Research partnerships</div>
+            <div class="about-pill"><i class="bi bi-check2-circle"></i> Agile delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <% } else if (page === 'contact') { %>
+  <!-- ─── CONTACT ───────────────────────────────────── -->
+  <section class="inner-hero py-5">
+    <div class="container">
+      <span class="eyebrow-tag">Get In Touch</span>
+      <h1 class="section-title mt-2">Let's <span class="headline-accent">talk.</span></h1>
+      <p class="body-lg mt-2">Fill in the form and our team will respond within one business day.</p>
+    </div>
+  </section>
+
+  <section class="contact-section pb-6">
+    <div class="container">
+      <div class="row g-5 justify-content-center">
+
+        <!-- Contact Info sidebar -->
+        <div class="col-lg-4 order-lg-2">
+          <div class="contact-info-panel">
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <div class="ci-label">Email</div>
+                <div class="ci-value">hello@cognifyz.tech</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <div class="ci-label">Phone</div>
+                <div class="ci-value">+91 90000 00000</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <div class="ci-label">Location</div>
+                <div class="ci-value">Nagpur, Maharashtra, India</div>
+              </div>
+            </div>
+            <hr class="divider" />
+            <div class="social-row">
+              <a href="#" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+              <a href="#" class="social-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="col-lg-7 order-lg-1">
+
+          <!-- ✅ SUCCESS STATE -->
+          <% if (success) { %>
+          <div class="success-card" id="successCard">
+            <div class="success-icon"><i class="bi bi-check-circle-fill"></i></div>
+            <h2 class="success-title">Message sent!</h2>
+            <p class="success-body">
+              Thanks, <strong><%= success.name %></strong>. We've received your message and will
+              reply to <strong><%= success.email %></strong> within one business day.
+            </p>
+            <a href="/contact" class="btn btn-primary-custom mt-3">Send another</a>
+          </div>
+          <% } else { %>
+
+          <!-- 📋 FORM STATE -->
+          <div class="form-card" id="contactFormCard">
+            <!-- Server-side error banner (shown when validation fails) -->
+            <% if (Object.keys(errors).length > 0) { %>
+            <div class="server-error-banner" role="alert">
+              <i class="bi bi-exclamation-triangle-fill me-2"></i>
+              Please fix the errors below and try again.
+            </div>
+            <% } %>
+
+            <form id="contactForm" action="/contact" method="POST" novalidate>
+
+              <div class="row g-3">
+                <!-- Full Name -->
+                <div class="col-sm-6">
+                  <div class="form-group-custom <%= errors.fullName ? 'has-error' : '' %>">
+                    <label for="fullName" class="form-label-custom">Full Name <span class="req">*</span></label>
+                    <div class="input-wrapper">
+                      <i class="bi bi-person input-icon"></i>
+                      <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        class="form-input-custom"
+                        placeholder="Angel Sharon"
+                        value="<%= formData.fullName || '' %>"
+                        autocomplete="name"
+                        required
+                      />
+                    </div>
+                    <span class="field-error" id="err-fullName">
+                      <%= errors.fullName || '' %>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="col-sm-6">
+                  <div class="form-group-custom <%= errors.email ? 'has-error' : '' %>">
+                    <label for="email" class="form-label-custom">Email Address <span class="req">*</span></label>
+                    <div class="input-wrapper">
+                      <i class="bi bi-envelope input-icon"></i>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input-custom"
+                        placeholder="you@example.com"
+                        value="<%= formData.email || '' %>"
+                        autocomplete="email"
+                        required
+                      />
+                    </div>
+                    <span class="field-error" id="err-email">
+                      <%= errors.email || '' %>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="col-sm-6">
+                  <div class="form-group-custom <%= errors.phone ? 'has-error' : '' %>">
+                    <label for="phone" class="form-label-custom">Phone <span class="optional">(optional)</span></label>
+                    <div class="input-wrapper">
+                      <i class="bi bi-telephone input-icon"></i>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        class="form-input-custom"
+                        placeholder="+91 98765 43210"
+                        value="<%= formData.phone || '' %>"
+                        autocomplete="tel"
+                      />
+                    </div>
+                    <span class="field-error" id="err-phone">
+                      <%= errors.phone || '' %>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Subject -->
+                <div class="col-sm-6">
+                  <div class="form-group-custom <%= errors.subject ? 'has-error' : '' %>">
+                    <label for="subject" class="form-label-custom">Subject <span class="req">*</span></label>
+                    <div class="input-wrapper">
+                      <i class="bi bi-tag input-icon"></i>
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        class="form-input-custom"
+                        placeholder="Internship enquiry"
+                        value="<%= formData.subject || '' %>"
+                        required
+                      />
+                    </div>
+                    <span class="field-error" id="err-subject">
+                      <%= errors.subject || '' %>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Message -->
+                <div class="col-12">
+                  <div class="form-group-custom <%= errors.message ? 'has-error' : '' %>">
+                    <label for="message" class="form-label-custom">Message <span class="req">*</span></label>
+                    <div class="input-wrapper textarea-wrapper">
+                      <i class="bi bi-chat-left-text input-icon textarea-icon"></i>
+                      <textarea
+                        id="message"
+                        name="message"
+                        class="form-input-custom form-textarea-custom"
+                        placeholder="Tell us about your project or enquiry…"
+                        rows="5"
+                        required
+                        maxlength="1000"
+                      ><%= formData.message || '' %></textarea>
+                    </div>
+                    <div class="char-row">
+                      <span class="field-error" id="err-message"><%= errors.message || '' %></span>
+                      <span class="char-count" id="charCount">0 / 1000</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="col-12 mt-2">
+                  <button type="submit" class="btn btn-primary-custom btn-submit" id="submitBtn">
+                    <span class="btn-text">Send message</span>
+                    <span class="btn-loader d-none" aria-hidden="true">
+                      <i class="bi bi-arrow-repeat spin"></i> Sending…
+                    </span>
+                    <i class="bi bi-send-fill btn-icon ms-2"></i>
+                  </button>
+                </div>
+
+              </div><!-- /row -->
+            </form>
+          </div><!-- /form-card -->
+          <% } %>
+
+        </div><!-- /col -->
+      </div><!-- /row -->
+    </div>
+  </section>
+
+  <% } else { %>
+  <!-- ─── 404 ───────────────────────────────────────── -->
+  <section class="inner-hero py-6 text-center">
+    <div class="container">
+      <div class="not-found-num">404</div>
+      <h1 class="section-title">Page not found</h1>
+      <p class="body-lg mt-2">This route doesn't exist. Head back home.</p>
+      <a href="/" class="btn btn-primary-custom mt-4">Back to home</a>
+    </div>
+  </section>
+  <% } %>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row align-items-center py-4">
+        <div class="col-md-6 text-center text-md-start">
+          <span class="footer-brand">Cognifyz<span class="brand-dot">.</span></span>
+          <span class="footer-copy ms-2">© <%= new Date().getFullYear() %> Cognifyz Technologies</span>
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+          <span class="footer-tag">Level 1 · Task 1 · Internship Project</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="/js/script.js"></script>
+</body>
+</html>
